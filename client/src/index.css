@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.05);
+  --color-glass-hover: rgba(255, 255, 255, 0.08);
+  
+  --color-neon-yellow: #facc15;
+  --color-neon-orange: #fb923c;
+  --color-neon-purple: #c084fc;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-950 text-slate-200 antialiased min-h-screen overflow-x-hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+/* Aurora Gradient Background */
+.aurora-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: radial-gradient(circle at 15% 50%, rgba(192, 132, 252, 0.08), transparent 25%),
+              radial-gradient(circle at 85% 30%, rgba(251, 146, 60, 0.08), transparent 25%),
+              radial-gradient(circle at 50% 80%, rgba(250, 204, 21, 0.05), transparent 25%);
+  filter: blur(60px);
+  animation: aurora 15s ease infinite alternate;
+}
+
+@keyframes aurora {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05) translate(2%, 2%); }
+  100% { transform: scale(1) translate(-2%, -2%); }
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  @apply bg-glass border border-glass-border backdrop-blur-xl rounded-2xl;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.glass-panel-hover {
+  @apply transition-all duration-300;
+}
+
+.glass-panel-hover:hover {
+  @apply bg-glass-hover border-white/10 -translate-y-1 shadow-lg shadow-black/40;
+}
+
+/* Neon Text */
+.text-neon {
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1); 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.2); 
+}
