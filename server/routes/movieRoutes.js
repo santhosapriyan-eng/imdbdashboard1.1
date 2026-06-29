@@ -10,6 +10,7 @@ const router = express.Router();
 
 router.get('/scrape', scrapeAndSaveMovies);
 router.get('/refresh', refreshMovies);
+
 router.route('/').get(getMovies);
 router.route('/:id').get(getMovie);
 
