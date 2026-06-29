@@ -13,7 +13,7 @@ const scrapeAndSaveMovies = async (req, res) => {
 
     // Clear existing movies or update them
     await Movie.deleteMany({});
-    
+    console.log(moviesData);
     const savedMovies = await Movie.insertMany(moviesData);
 
     res.status(200).json({

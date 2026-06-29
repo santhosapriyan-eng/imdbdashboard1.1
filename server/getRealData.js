@@ -7,6 +7,8 @@ const fs = require('fs');
   
   await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36');
   await page.goto('https://www.imdb.com/chart/boxoffice/', { waitUntil: 'networkidle2' });
+  await page.waitForSelector('#__NEXT_DATA__', { timeout: 15000 });
+  await new Promise(resolve => setTimeout(resolve, 3000));
 
   const data = await page.evaluate(() => {
     try {

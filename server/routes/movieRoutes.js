@@ -9,7 +9,7 @@ const {
 const router = express.Router();
 
 router.get('/scrape', scrapeAndSaveMovies);
-router.post('/refresh', refreshMovies);
+router.get('/refresh', refreshMovies);
 router.route('/').get(getMovies);
 router.route('/:id').get(getMovie);
 

@@ -129,6 +129,7 @@ const scrapeIMDb = async () => {
       });
 
       if (movies.length > 0) {
+        console.log(JSON.stringify(movies, null, 2));
         return movies;
       }
     }
